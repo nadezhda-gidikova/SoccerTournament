@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SoccerTournament.Data;
 using SoccerTournament.Mapping;
 using SoccerTournament.Models;
+using SoccerTournament.Services;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +17,7 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IPlayerService, PlayerService>();
 
 var app = builder.Build();
 AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);
