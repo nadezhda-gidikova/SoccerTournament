@@ -1,0 +1,14 @@
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\bin\Debug\net6.0\SoccerTournament.Data.deps.json
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\bin\Debug\net6.0\SoccerTournament.Data.runtimeconfig.json
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\bin\Debug\net6.0\SoccerTournament.Data.dll
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\bin\Debug\net6.0\SoccerTournament.Data.pdb
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.csproj.AssemblyReference.cache
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.AssemblyInfoInputs.cache
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.AssemblyInfo.cs
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.csproj.CoreCompileInputs.cache
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.dll
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\refint\SoccerTournament.Data.dll
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.pdb
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\SoccerTournament.Data.genruntimeconfig.cache
+C:\Users\Nadezhda\Desktop\Local-Repo\SoccerTournament\SoccerTournament.Data\obj\Debug\net6.0\ref\SoccerTournament.Data.dll
