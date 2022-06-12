@@ -17,6 +17,8 @@
 
         public DateTime DateOfBirth { get; set; }
 
+        public string PictureUrl { get; set; }
+
         public Position Position { get; set; }
 
         public int Number { get; set; }

@@ -9,5 +9,7 @@
 
         public Task<ICollection<T>> GetAllPlayersByTeamAsync<T>(string teamName);
 
+        public Task<Player> GetPlayerByIdAsinc(int id);
+
     }
 }

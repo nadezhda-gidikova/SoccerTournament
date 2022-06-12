@@ -1,0 +1,74 @@
+﻿@using SoccerTournament.Data.Models
+@model SoccerTournament.Models.Player.PlayerFormModel
+@{
+    ViewBag.Title = "Create Player";
+}
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <h2 class="heading-margin text-center">@ViewBag.Title</h2>
+
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" placeholder="Firstname">
+                <span asp-validation-for="FirstName" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FamilyName"></label>
+                <input asp-for="FamilyName" rows="4" class="form-control" placeholder="Familyname"></input>
+                <span asp-validation-for="FamilyName" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PictureUrl"></label>
+                <input asp-for="PictureUrl" class="form-control" placeholder="Picture URL">
+                <span asp-validation-for="PictureUrl" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth"></label>
+                <input asp-for="DateOfBirth" class="form-control" placeholder="@DateTime.UtcNow">
+                <span asp-validation-for="DateOfBirth" class="small text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="AverageRating"></label>
+                <input asp-for="AverageRating" class="form-control">
+                <span asp-validation-for="AverageRating" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Assistances"></label>
+                <input asp-for="Assistances" class="form-control">
+                <span asp-validation-for="Assistances" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Goals"></label>
+                <input asp-for="Goals" class="form-control">
+                <span asp-validation-for="Goals" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="YellowCards"></label>
+                <input asp-for="YellowCards" class="form-control">
+                <span asp-validation-for="YellowCards" class="small text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="RedCards"></label>
+                <input asp-for="RedCards" class="form-control">
+                <span asp-validation-for="RedCards" class="small text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="Takle"></label>
+                <input asp-for="Takle" class="form-control">
+                <span asp-validation-for="Takle" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Position"></label>
+                <select asp-for="Position" class="form-control" asp-items="Html.GetEnumSelectList<Position>()"></select>
+                <span asp-validation-for="Position" class="small text-danger"></span>
+            </div>
+
+            <input class="btn btn-primary mt-3" type="submit" value="Save" />
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

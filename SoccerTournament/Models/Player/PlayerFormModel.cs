@@ -11,6 +11,8 @@
 
         public DateTime DateOfBirth { get; set; }
 
+        public string PictureUrl { get; set; }
+
         public string Position { get; set; }
 
         public int Number { get; set; }
@@ -28,5 +30,7 @@
         public int RedCards { get; set; }
 
         public int Takle { get; set; }
+
+      
     }
 }

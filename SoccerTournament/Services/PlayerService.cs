@@ -23,6 +23,7 @@
                 FamilyName = model.FamilyName,
                 DateOfBirth = model.DateOfBirth,
                 Position = (Position)Enum.Parse(typeof(Position), model.Position),
+                PictureUrl=model.PictureUrl,
                 Number = model.Number,
                 Goals = model.Goals,
                 Assistances = model.Assistances,
@@ -49,18 +50,22 @@
 
         public async Task DeletePlayerByIdAsync(int id)
         {
-            var player = this.db.Players.FirstOrDefault(x => x.Id == id);
+            var player = await this.db.Players.FirstOrDefaultAsync(x => x.Id == id);
             db.Players.Remove(player);
             await db.SaveChangesAsync();
         }
 
         public async Task DeletePlayerByNameAsync(string playerFirstName, string playerFamilyName)
         {
-            var player = this.db.Players.FirstOrDefault(x => x.FirstName == playerFirstName && x.FamilyName==playerFamilyName);
+            var player =await this.db.Players.FirstOrDefaultAsync(x => x.FirstName == playerFirstName && x.FamilyName==playerFamilyName);
             db.Players.Remove(player);
             await db.SaveChangesAsync();
         }
-
+        public async Task<Player> GetPlayerByIdAsinc(int id)
+        {
+            Player player = await this.db.Players.FirstOrDefaultAsync(x => x.Id == id);
+            return player;
+        }
 
     }
 }
