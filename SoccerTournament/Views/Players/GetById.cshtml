@@ -1,0 +1,29 @@
+﻿@using SoccerTournament.Data.Models
+@model SoccerTournament.Models.Player.PlayerViewModel
+
+<div class="row">
+    <div class="col-lg-9">
+        <div id="carouselExampleControls">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="@Model.PictureUrl" class="d-block w-100" alt="@Model.FirstName @Model.FamilyName">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3">
+        <div class="card-body">
+            <h2 class="card-title">@Model.FirstName @Model.FamilyName</h2>
+            <h6 class="card-title">Date of birth: @Model.DateOfBirth.ToString("D")</h6>
+            <h6 class="card-title">Average Rating: @Model.AverageRating</h6>
+            <h6 class="card-title">Goals: @Model.Goals</h6>
+            <h6 class="card-title">Position: @Model.Position</h6>
+            <h6 class="card-title">Number: @Model.Number</h6>
+            <h6 class="card-title">Assistances: @Model.Assistances</h6>      
+            <h6 class="card-title">RedCards: @Model.RedCards</h6>
+            <h6 class="card-title">YellowCards: @Model.YellowCards</h6>
+            <h6 class="card-title">Takle: @Model.Takle</h6>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>

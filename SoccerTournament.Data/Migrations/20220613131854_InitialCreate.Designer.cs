@@ -12,7 +12,7 @@ using SoccerTournament.Data;
 namespace SoccerTournament.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220612154101_InitialCreate")]
+    [Migration("20220613131854_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -401,6 +401,9 @@ namespace SoccerTournament.Data.Migrations
 
                     b.Property<int>("Number")
                         .HasColumnType("int");
+
+                    b.Property<string>("PictureUrl")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Position")
                         .HasColumnType("int");

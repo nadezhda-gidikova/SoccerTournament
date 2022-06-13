@@ -17,7 +17,7 @@
 
         public int Number { get; set; }
 
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         public int Goals { get; set; }
 

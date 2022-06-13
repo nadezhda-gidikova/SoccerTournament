@@ -27,12 +27,15 @@
                 Number = model.Number,
                 Goals = model.Goals,
                 Assistances = model.Assistances,
-                TeamId = model.TeamId,
                 AverageRating = model.AverageRating,
                 RedCards = model.RedCards,
                 Takle = model.Takle,
                 YellowCards = model.YellowCards,
             };
+            if(model.TeamId!=null)
+            {
+                player.TeamId = model.TeamId;
+            }
             db.Add(player);
            await db.SaveChangesAsync();
 
@@ -66,6 +69,19 @@
             Player player = await this.db.Players.FirstOrDefaultAsync(x => x.Id == id);
             return player;
         }
+        public async Task<T> GetByIdAsync<T>(int id)
+        {
+            var book = await this.db.Players
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
+            if (book == null)
+            {
+                throw new NullReferenceException(string.Format("Player not found", id));
+            }
+            return book;
+        }
+       
 
     }
 }

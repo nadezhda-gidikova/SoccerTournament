@@ -24,7 +24,7 @@
         public int Number { get; set; }
 
         [ForeignKey("Team")]
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         public virtual Team Team { get; set; }
 

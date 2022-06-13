@@ -400,6 +400,9 @@ namespace SoccerTournament.Data.Migrations
                     b.Property<int>("Number")
                         .HasColumnType("int");
 
+                    b.Property<string>("PictureUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("Position")
                         .HasColumnType("int");
 
@@ -409,7 +412,7 @@ namespace SoccerTournament.Data.Migrations
                     b.Property<int>("Takle")
                         .HasColumnType("int");
 
-                    b.Property<int>("TeamId")
+                    b.Property<int?>("TeamId")
                         .HasColumnType("int");
 
                     b.Property<int>("YellowCards")
@@ -587,9 +590,7 @@ namespace SoccerTournament.Data.Migrations
                 {
                     b.HasOne("SoccerTournament.Data.Models.Team", "Team")
                         .WithMany("Players")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TeamId");
 
                     b.Navigation("Team");
                 });
