@@ -36,7 +36,7 @@
             {
                 player.TeamId = model.TeamId;
             }
-            db.Add(player);
+            db.Players.Add(player);
            await db.SaveChangesAsync();
 
             return player;
@@ -85,11 +85,13 @@
             db.Players.Remove(player);
             await db.SaveChangesAsync();
         }
+
         public async Task<Player> GetPlayerByIdAsinc(int id)
         {
             Player player = await this.db.Players.FirstOrDefaultAsync(x => x.Id == id);
             return player;
         }
+
         public async Task<T> GetByIdAsync<T>(int id)
         {
             var book = await this.db.Players
@@ -102,7 +104,16 @@
             }
             return book;
         }
-       
+
+        public async Task<ICollection<T>> GetPlayersKeyValueAsync<T>()
+        {
+            var players = await this.db
+                .Players
+                .To<T>()
+                .ToListAsync();
+            return players;
+        }
+
 
     }
 }

@@ -18,6 +18,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IPlayerService, PlayerService>();
+builder.Services.AddTransient<ITeamService, TeamService>();
+builder.Services.AddTransient<ICoachService, CoachService>();
+
+
 
 var app = builder.Build();
 AutoMapperConfig.RegisterMappings(typeof(ErrorViewModel).GetTypeInfo().Assembly);

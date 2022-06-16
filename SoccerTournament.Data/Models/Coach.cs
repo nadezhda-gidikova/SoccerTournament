@@ -9,9 +9,9 @@
 
         public string FullName { get; set; }
 
-        [Required]
+        
         [ForeignKey("Team")]
-        public int TeamId { get; set; }
+        public int? TeamId { get; set; }
 
         public virtual Team Team { get; set; }
     }

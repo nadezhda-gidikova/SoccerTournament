@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SoccerTournament.Data;
 
@@ -11,9 +12,10 @@ using SoccerTournament.Data;
 namespace SoccerTournament.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220616123307_changeColumnCoachId")]
+    partial class changeColumnCoachId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -235,14 +237,13 @@ namespace SoccerTournament.Data.Migrations
                     b.Property<string>("FullName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TeamId")
+                    b.Property<int>("TeamId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("TeamId")
-                        .IsUnique()
-                        .HasFilter("[TeamId] IS NOT NULL");
+                        .IsUnique();
 
                     b.ToTable("Coaches");
                 });
@@ -308,9 +309,6 @@ namespace SoccerTournament.Data.Migrations
 
                     b.Property<int>("Corners")
                         .HasColumnType("int");
-
-                    b.Property<string>("Emblem")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Falls")
                         .HasColumnType("int");
@@ -534,7 +532,8 @@ namespace SoccerTournament.Data.Migrations
                     b.HasOne("SoccerTournament.Data.Models.Team", "Team")
                         .WithOne("Coach")
                         .HasForeignKey("SoccerTournament.Data.Models.Coach", "TeamId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
 
                     b.Navigation("Team");
                 });

@@ -12,8 +12,7 @@
         public string Name { get; set; }
 
         [ForeignKey("Coach")]
-        [Required]
-        public int CoachId { get; set; }
+        public int? CoachId { get; set; }
 
         public virtual Coach Coach { get; set; }
 
