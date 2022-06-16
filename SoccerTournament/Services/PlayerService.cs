@@ -51,6 +51,27 @@
                 .ToListAsync();
         }
 
+        public async Task<ICollection<T>> GetAllPlayersBYFirstNameAsync<T>(int page, int itemsPerPage = 12)
+        {
+            return await this.db.Players
+                .OrderBy(x => x.FirstName)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>()
+                .ToListAsync();
+
+        }
+
+
+        public async Task<ICollection<T>> GetAllPlayersByLastNameAsync<T>(int page, int itemsPerPage = 12)
+        {
+            return await this.db.Players
+                .OrderBy(x => x.FamilyName)
+                .Skip((page - 1) * itemsPerPage).Take(itemsPerPage)
+                .To<T>()
+                .ToListAsync();
+
+        }
+
         public async Task DeletePlayerByIdAsync(int id)
         {
             var player = await this.db.Players.FirstOrDefaultAsync(x => x.Id == id);

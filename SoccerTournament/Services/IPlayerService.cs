@@ -11,5 +11,10 @@
 
         public Task<T> GetByIdAsync<T>(int id);
 
+        public Task<ICollection<T>> GetAllPlayersBYFirstNameAsync<T>(int page, int itemsPerPage = 12);
+
+        public Task<ICollection<T>> GetAllPlayersByLastNameAsync<T>(int page, int itemsPerPage = 12);
+
+        public Task DeletePlayerByIdAsync(int id);
     }
 }

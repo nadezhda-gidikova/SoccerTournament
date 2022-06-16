@@ -1,12 +1,17 @@
 ﻿@using SoccerTournament.Data.Models
 @model SoccerTournament.Models.Player.PlayerViewModel
 
+@{
+    ViewBag.Title = @Model.FirstName + @Model.FamilyName;
+}
+
 <div class="row">
     <div class="col-lg-9">
         <div id="carouselExampleControls">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="@Model.PictureUrl" class="d-block w-100" alt="@Model.FirstName @Model.FamilyName">
+                   
                 </div>
             </div>
         </div>
@@ -19,11 +24,17 @@
             <h6 class="card-title">Goals: @Model.Goals</h6>
             <h6 class="card-title">Position: @Model.Position</h6>
             <h6 class="card-title">Number: @Model.Number</h6>
-            <h6 class="card-title">Assistances: @Model.Assistances</h6>      
+            <h6 class="card-title">Assistances: @Model.Assistances</h6>
             <h6 class="card-title">RedCards: @Model.RedCards</h6>
             <h6 class="card-title">YellowCards: @Model.YellowCards</h6>
             <h6 class="card-title">Takle: @Model.Takle</h6>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <a asp-area="" asp-controller="Players" asp-action="GetAllByName">See all players</a>
         </div>
     </div>
+    
 </div>
+<div>
+        <a asp-area="" asp-controller="Players" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
+    </div>
+    <br>
+    

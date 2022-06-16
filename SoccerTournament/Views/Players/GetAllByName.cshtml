@@ -1,0 +1,31 @@
+﻿@model SoccerTournament.Models.Player.PlayerListViewModel
+
+@{
+    ViewBag.Title = "Players";
+}
+<h1 class="text-white-50">@this.ViewData["Title"]</h1>
+<hr />
+
+
+<section>
+    <div class="row">
+
+        @foreach (var player in @Model.Players)
+        {
+            <div class="col-lg-4 col-md-6 col-sm-6">
+                <div class="card" style="width:400px">
+                    <img class="card-img-top" src="@player.PictureUrl" alt="@player.FirstName @player.FamilyName">
+                    <div class="card-body">
+                        <h4 class="card-title">@player.FirstName @player.FamilyName</h4>
+
+                        <a asp-area=""asp-controller="Players" asp-action="GetById" asp-route-id="@player.Id" class="btn btn-primary">See Info</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+
+</section>
+
+<partial name="_PagingPartial" model="@Model" />
