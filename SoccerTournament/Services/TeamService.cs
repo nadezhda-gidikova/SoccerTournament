@@ -25,19 +25,23 @@
                     Name = model.Country,
                 };
             }
+            var coach = await this.db.Coaches.FirstOrDefaultAsync(x => x.Id == model.CoachId);
+            
             var team = new Team
             {
                 Name = model.Name,
+                Emblem=model.Emblem,
                 CoachId = model.CoachId,
+                Coach=coach,
                 Country = country,
             };
+            coach.TeamId= team.Id;
             foreach (var player in model.PlayersSelectList)
             {
                 Player pl = await this.db.Players.FirstOrDefaultAsync(x => x.Id == player);
                 if (pl != null)
                 {
-                    team.Players.Add(pl
-                        );
+                    team.Players.Add(pl);
                     pl.TeamId = team.Id;
                 }
             }
@@ -57,6 +61,33 @@
                 .To<T>()
                 .ToListAsync();
 
+        }
+
+        public async Task DeleteByIdAsync(int id)
+        {
+            var player = await this.db.Teams.FirstOrDefaultAsync(x => x.Id == id);
+           
+            var coach = db.Coaches.FirstOrDefault(c => c.TeamId == id);
+            if (coach != null)
+            {
+                coach.TeamId = null;
+            }
+          
+            db.Teams.Remove(player);
+            await db.SaveChangesAsync();
+        }
+
+        public async Task<T> GetByIdAsync<T>(int id)
+        {
+            var team = await this.db.Teams
+                .Where(x => x.Id == id)
+                .To<T>()
+                .FirstOrDefaultAsync();
+            if (team == null)
+            {
+                throw new NullReferenceException(string.Format("Team not found", id));
+            }
+            return team;
         }
     }
 }

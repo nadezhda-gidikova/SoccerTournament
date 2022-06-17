@@ -17,8 +17,6 @@
 
         public Team HomeTeam { get; set; }
 
-        public string Emblem { get; set; }
-
         [Required]
         [ForeignKey("AwayTeam")]
         public int AwayTeamId { get; set; }

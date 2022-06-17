@@ -16,6 +16,8 @@
 
         public virtual Coach Coach { get; set; }
 
+        public string Emblem { get; set; }
+
         [ForeignKey("Country")]
         public int CountryId { get; set; }
 

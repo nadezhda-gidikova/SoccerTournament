@@ -89,6 +89,10 @@
         public async Task<Player> GetPlayerByIdAsinc(int id)
         {
             Player player = await this.db.Players.FirstOrDefaultAsync(x => x.Id == id);
+            if (player == null)
+            {
+                throw new NullReferenceException(string.Format("Player not found", id));
+            }
             return player;
         }
 

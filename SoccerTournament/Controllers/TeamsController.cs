@@ -78,6 +78,25 @@
             return this.View(viewModel);
 
         }
+
+         public async Task<IActionResult> GetById(int id)
+        {
+            var playerNew=await this.teamService.GetByIdAsync<TeamViewModel>(id);
+            if (playerNew == null)
+            {
+                return this.NotFound();
+            }
+
+            return this.View(playerNew);
+        }
+
+        public async Task<IActionResult> Delete(int Id)
+        {
+            
+            await teamService.DeleteByIdAsync(Id);
+            return RedirectToAction(nameof(GetAllById));
+        }
+
     }
 
 
