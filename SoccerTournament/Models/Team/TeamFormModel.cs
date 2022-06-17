@@ -4,10 +4,11 @@
     using SoccerTournament.Models.Coach;
     using SoccerTournament.Models.Player;
     using SoccerTournament.Data.Models;
-
+    using System.ComponentModel.DataAnnotations;
 
     public class TeamFormModel:IMapFrom<Team>,IMapTo<Team>
     {
+        [MaxLength(100)]
         public string Name { get; set; }
 
         public string Emblem { get; set; }

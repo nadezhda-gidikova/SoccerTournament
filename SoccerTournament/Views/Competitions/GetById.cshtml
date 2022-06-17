@@ -1,0 +1,28 @@
+﻿@using SoccerTournament.Data.Models
+@model SoccerTournament.Models.Competition.CompetitionViewModel
+@{
+    ViewBag.Title = @Model.Name;
+}
+<div>
+    <div >
+        <div >
+            <h1 class="align-content-center">@Model.Name</h1>
+            <div class="row">
+                @foreach (var game in @Model.Games)
+                {
+                    <div class="col-lg-6">
+                        <h2 class="card-title">@game.Name</h2>
+                        <h6 class="card-title">HomeTeam: @game.HomeTeamName</h6>
+                        <h6 class="card-title">AwayTeam: @game.AwayTeamName</h6>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div>
+    <a asp-area="" asp-controller="Competitions" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
+</div>
+<br>

@@ -9,12 +9,11 @@
 
 <section>
     <div class="row">
-
         @foreach (var player in @Model.Players)
         {
             <div class="col-lg-4 col-md-6 col-sm-6">
                 <div class="card" style="width:400px">
-                    <img class="card-img-top" src="@player.PictureUrl" alt="@player.FirstName @player.FamilyName">
+                    <img style="width:400px;height:200px" class="card-img-top" src="@player.PictureUrl" alt="@player.FirstName @player.FamilyName">
                     <div class="card-body">
                         <h4 class="card-title">@player.FirstName @player.FamilyName</h4>
 
@@ -24,8 +23,6 @@
             </div>
         }
     </div>
-
-
 </section>
 
 <partial name="_PagingPartial" model="@Model" />

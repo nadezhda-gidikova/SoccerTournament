@@ -1,5 +1,6 @@
 ﻿namespace SoccerTournament.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using SoccerTournament.Data;
@@ -22,17 +23,17 @@
             this.coachService = coachService;
             this.db = db;
         }
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create()
         {
             ViewBag.players = this.db.Players.Select(r => new SelectListItem { Value = r.Id.ToString(), Text = r.FirstName+" "+r.FamilyName }).ToList();
             var model = new TeamFormModel
             {
-                
                 Coaches = await this.coachService.GetCoachesKeyValueAsync<CoachViewModel>(),
             };
             return this.View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(TeamFormModel model)
         {

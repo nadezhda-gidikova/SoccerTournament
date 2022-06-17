@@ -1,15 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using SoccerTournament.Extensions
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SoccerTournament</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-   
+
 
 
     <link rel="stylesheet" href="~/SoccerTournament.styles.css" asp-append-version="true" />
-     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <header>
@@ -20,22 +21,49 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
+                @if (User.IsAdmin())
+                {
+                    <div class="dropdown">
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+                            Create
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li >
+                                <a class="dropdown-item" asp-area="" asp-controller="Players" asp-action="Create">Player</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" asp-area="" asp-controller="Teams" asp-action="Create">Team</a>
+                            </li>
+                            <li >
+                                <a class="dropdown-item" asp-area="" asp-controller="Games" asp-action="Create">Game</a>
+                            </li>
+                            <li >
+                                <a class="dropdown-item" asp-area="" asp-controller="Competitions" asp-action="Create">Competition</a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                }
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-white-50" asp-area="" asp-controller="Players" asp-action="Create">Add new player</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Players" asp-action="GetAllByName">Players</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Teams" asp-action="GetAllById">Teams</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white-50" asp-area="" asp-controller="Players" asp-action="GetAllByName">All</a>
-                        </li>
-                         <li class="nav-item">
-                            <a class="nav-link text-white-50" asp-area="" asp-controller="Teams" asp-action="Create">Add new team</a>
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Games" asp-action="GetAllById">Games</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white-50" asp-area="" asp-controller="Teams" asp-action="GetAllById">All teams</a>
+                            <a class="nav-link text-white-50" asp-area="" asp-controller="Games" asp-action="GetAllById">Competitions</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white-50" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
@@ -45,7 +73,7 @@
                 </div>
             </div>
         </nav>
-     </header>
+    </header>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -60,7 +88,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-  
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

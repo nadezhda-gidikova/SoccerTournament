@@ -1,6 +1,9 @@
 ﻿namespace SoccerTournament.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.AspNetCore.Mvc.Rendering;
+    using SoccerTournament.Data;
     using SoccerTournament.Models.Competition;
     using SoccerTournament.Models.Game;
     using SoccerTournament.Services;
@@ -9,36 +12,42 @@
     {
         private readonly ICompetitionService competittionService;
         private readonly IGameService gameService;
+        private readonly ApplicationDbContext db;
 
-        public CompetitionsController(ICompetitionService competittionService,IGameService gameService)
+        public CompetitionsController(ICompetitionService competittionService,IGameService gameService,ApplicationDbContext db)
         {
             this.competittionService = competittionService;
             this.gameService = gameService;
+            this.db = db;
         }
-
-        public async Task<IActionResult> Create()
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
         {
-
-            var model = new CompetitionFormModel
-            {
-                Games = await this.gameService.GetAllByIdInListAsync<GameViewModel>(),
-            };
-            return this.View(model);
+            ViewBag.games = this.db.Games.Select(r => new SelectListItem { Value = r.Id.ToString(), Text = r.Name }).ToList();
+           
+            return this.View();
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(CompetitionFormModel model)
         {
-
-
-           
-
-            if (!ModelState.IsValid)
+            foreach (var game in model.GamesSelectList)
             {
-                model.Games = await this.gameService.GetAllByIdInListAsync<GameViewModel>();
+                var gameselected = await this.gameService.GetByIdAsync<GameKeyValue>(game);
+                if (gameselected == null)
+                {
+                    this.ModelState.AddModelError(nameof(model.Games), $"Game with Id:{game} does not exist.");
+                }
+            }
+            if (!ModelState.IsValid)
+            {     
                 return View(model);
             }
-            var newGame = await this.competittionService.(model);
+            var newCompetition = await this.competittionService.CreateCompetitionAsync(model);
+            foreach (var game in model.GamesSelectList)
+            {
+                await this.competittionService.AddGamesToCompetitions(game, newCompetition.Id);
+            }
             return RedirectToAction(nameof(GetAllById));
         }
 
@@ -51,16 +60,16 @@
 
             const int ItemsPerPage = 12;
 
-            var viewModel = new GameListViewModel
+            var viewModel = new CompetitionListViewModel
             {
-                Games = await this.gameService.GetAllByIdAsync<GameInListViewModel>(id, ItemsPerPage),
+                Competitions = await this.competittionService.GetAllByIdAsync<CompetitionInListViewModel>(id, ItemsPerPage),
             };
             return this.View(viewModel);
 
         }
         public async Task<IActionResult> GetById(int id)
         {
-            var playerNew = await this.gameService.GetByIdAsync<GameViewModel>(id);
+            var playerNew = await this.competittionService.GetByIdAsync<CompetitionViewModel>(id);
             if (playerNew == null)
             {
                 return this.NotFound();

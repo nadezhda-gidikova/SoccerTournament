@@ -1,5 +1,6 @@
 ﻿namespace SoccerTournament.Controllers
 {
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using SoccerTournament.Models.Game;
     using SoccerTournament.Models.Team;
@@ -15,6 +16,7 @@
             this.gameService = gameService;
             this.teamService = teamService;
         }
+        [Authorize(Roles ="Admin")]
 
         public async Task<IActionResult> Create()
         {
@@ -25,7 +27,7 @@
             };
             return this.View(model);
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public async Task<IActionResult> Create(GameFormModel model)
         {
