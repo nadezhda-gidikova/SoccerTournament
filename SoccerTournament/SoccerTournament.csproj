@@ -30,4 +30,8 @@
     <ProjectReference Include="..\SoccerTournament.Data\SoccerTournament.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Competitions\" />
+  </ItemGroup>
+
 </Project>

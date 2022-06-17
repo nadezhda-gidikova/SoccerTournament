@@ -51,7 +51,14 @@
             return team;
         }
 
+        public async Task<ICollection<T>> GetAllInList<T>()
+        {
+            return await this.db.Teams
+                .OrderBy(x => x.Name)
+                .To<T>()
+                .ToListAsync();
 
+        }
 
         public async Task<ICollection<T>> GetAllTeamsByIdAsync<T>(int page, int itemsPerPage = 12)
         {

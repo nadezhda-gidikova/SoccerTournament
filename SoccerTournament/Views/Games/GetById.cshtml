@@ -1,0 +1,48 @@
+﻿@using SoccerTournament.Data.Models
+@model SoccerTournament.Models.Game.GameViewModel
+
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+<div class="row">
+    <div class="col-lg-3">
+        <div id="carouselExampleControls">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <h2 class="card-title">@Model.Name</h2>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div>
+            <h2 class="card-title">@Model.Name</h2>
+            <h6 class="card-title">HomeTeam: @Model.HomeTeamName</h6>
+            <h6 class="card-title">AwayTeam: @Model.AwayTeamName</h6>
+            <h6 class="card-title">Result: Home @Model.HomeTeamGoals : @Model.AwayTeamGoals Away</h6>
+            <h6 class="card-title">Stage: @Model.Stage</h6>
+            <h6 class="card-title">Goals scored: @Model.Goals</h6>
+            <h6 class="card-title">Corners: @Model.Corners</h6>
+            <h6 class="card-title">BallPossessions: @Model.BallPossessions</h6>
+            <h6 class="card-title">Red cards: @Model.RedCards</h6>
+            <h6 class="card-title">Yellow cards: @Model.YellowCards</h6>
+            <h6 class="card-title">TrollIns: @Model.TrollIns</h6>
+            <h6 class="card-title">Shots on target: @Model.ShotsOnTarget</h6>
+            <h6 class="card-title">Shots of target: @Model.ShotsOfTarget</h6>
+            <h6 class="card-title">Falls: @Model.Falls</h6>
+            <h6 class="card-title">Offsites: @Model.OffSites</h6>
+            <div class="row">
+                <h6 class="card-title">Players:</h6>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+<div>
+    <a asp-area="" asp-controller="Teams" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
+</div>
+<br>

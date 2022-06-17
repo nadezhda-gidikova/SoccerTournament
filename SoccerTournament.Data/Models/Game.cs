@@ -7,7 +7,7 @@
     {
         public int Id { get; set; }
 
-        [Required]
+      
         [MaxLength(100)]
         public string Name { get; set; }
 
@@ -32,7 +32,7 @@
         [ForeignKey("WinnnerTeam")]
         public int WinnnerTeamId { get; set; }
 
-        [Required]
+     
         public Team WinnerTeam { get; set; }
 
         public int HomeTeamGoals { get; set; }

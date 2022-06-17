@@ -13,5 +13,7 @@
 
         public Task DeleteByIdAsync(int id);
 
+        public Task<ICollection<T>> GetAllInList<T>();
+
     }
 }

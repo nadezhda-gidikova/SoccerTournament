@@ -20,6 +20,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<IPlayerService, PlayerService>();
 builder.Services.AddTransient<ITeamService, TeamService>();
 builder.Services.AddTransient<ICoachService, CoachService>();
+builder.Services.AddTransient<IGameService, GameService>();
+builder.Services.AddTransient<ICompetitionService, CompetitionService>();
+
+
 
 
 

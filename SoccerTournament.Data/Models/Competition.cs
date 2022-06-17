@@ -13,7 +13,7 @@
         public virtual ICollection<Game> Games { get; set; } = new HashSet<Game>();
 
         [ForeignKey("Winner")]
-        public int WinnerId { get; set; }
+        public int? WinnerId { get; set; }
 
         public virtual Team Winner { get; set; }
     }
