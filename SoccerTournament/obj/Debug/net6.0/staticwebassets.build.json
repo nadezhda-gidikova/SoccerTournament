@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "SqFVufKVZfY96Yi3NdbKhFUjerKHAJUDMSlKlqIbDYA=",
+  "Hash": "PAgxmEKbj1b1brATolNTW9E3gryFHLJH0Zvg8woB/+0=",
   "Source": "SoccerTournament",
   "BasePath": "_content/SoccerTournament",
   "Mode": "Default",
@@ -1086,23 +1086,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
-    },
-    {
-      "Identity": "C:\\Users\\Nadezhda\\Desktop\\Local-Repo\\SoccerTournament\\SoccerTournament\\wwwroot\\css\\theme.css",
-      "SourceId": "SoccerTournament",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nadezhda\\Desktop\\Local-Repo\\SoccerTournament\\SoccerTournament\\wwwroot\\",
-      "BasePath": "_content/SoccerTournament",
-      "RelativePath": "css/theme.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\theme.css"
     },
     {
       "Identity": "C:\\Users\\Nadezhda\\Desktop\\Local-Repo\\SoccerTournament\\SoccerTournament\\wwwroot\\favicon.ico",
