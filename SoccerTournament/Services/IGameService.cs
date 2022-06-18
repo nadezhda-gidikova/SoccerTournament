@@ -12,5 +12,7 @@
         public Task<T> GetByIdAsync<T>(int id);
 
         public Task<ICollection<T>> GetAllByIdInListAsync<T>();
+
+      
     }
 }

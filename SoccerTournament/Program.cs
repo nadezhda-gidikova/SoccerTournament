@@ -32,6 +32,8 @@ builder.Services.AddTransient<ITeamService, TeamService>();
 builder.Services.AddTransient<ICoachService, CoachService>();
 builder.Services.AddTransient<IGameService, GameService>();
 builder.Services.AddTransient<ICompetitionService, CompetitionService>();
+builder.Services.AddTransient<IGameStatistics, GameSatistics>();
+
 
 
 

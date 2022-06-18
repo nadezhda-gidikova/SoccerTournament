@@ -18,31 +18,72 @@
     </div>
     <div class="col-lg-9 mx-auto d-block">
         <div>
-            <h2 class="card-title">@Model.Name</h2>
-            <h6 class="card-title">HomeTeam: @Model.HomeTeamName</h6>
-            <h6 class="card-title">AwayTeam: @Model.AwayTeamName</h6>
-            <h6 class="card-title">Result: Home @Model.HomeTeamGoals : @Model.AwayTeamGoals Away</h6>
-            <h6 class="card-title">Stage: @Model.Stage</h6>
-            <h6 class="card-title">Goals scored: @Model.Goals</h6>
-            <h6 class="card-title">Corners: @Model.Corners</h6>
-            <h6 class="card-title">BallPossessions: @Model.BallPossessions</h6>
-            <h6 class="card-title">Red cards: @Model.RedCards</h6>
-            <h6 class="card-title">Yellow cards: @Model.YellowCards</h6>
-            <h6 class="card-title">TrollIns: @Model.TrollIns</h6>
-            <h6 class="card-title">Shots on target: @Model.ShotsOnTarget</h6>
-            <h6 class="card-title">Shots of target: @Model.ShotsOfTarget</h6>
-            <h6 class="card-title">Falls: @Model.Falls</h6>
-            <h6 class="card-title">Offsites: @Model.OffSites</h6>
-            <div class="row">
-                <h6 class="card-title">Players:</h6>
-
-            </div>
+            <h2>Games Statistics @Model.Name</h2>
+            <table class="table-bordered table-striped table table-warning">
+                <tr>
+                    <th>HomeTeam: @Model.HomeTeamName</th>
+                    <th>AwayTeam: @Model.AwayTeamName</th>
+                </tr>
+                <tr>
+                    <td>Result: </td>
+                    <td>Home @Model.HomeTeamGoals : @Model.AwayTeamGoals Away</td>
+                </tr>
+                <tr>
+                    <td>Stage: </td>
+                    <td>@Model.Stage</td>
+                </tr>
+                <tr>
+                    <td>Goals score</td>
+                    <td>@Model.Goals</td>
+                </tr>
+                <tr>
+                    <td>Corners</td>
+                    <td>@Model.Corners</td>
+                </tr>
+                <tr>
+                    <td>BallPossessions</td>
+                    <td>@Model.BallPossessions</td>
+                </tr>
+                <tr>
+                    <td>Red cards</td>
+                    <td>@Model.RedCards</td>
+                </tr>
+                <tr>
+                    <td>Yellow cards</td>
+                    <td>@Model.YellowCards</td>
+                </tr>
+                <tr>
+                    <td>TrollIns</td>
+                    <td>@Model.TrollIns</td>
+                </tr>
+                <tr>
+                    <td>Shots on target</td>
+                    <td>@Model.ShotsOnTarget</td>
+                </tr>
+                <tr>
+                    <td>Shots of target</td>
+                    <td>@Model.ShotsOfTarget</td>
+                </tr>
+                <tr>
+                    <td>Falls</td>
+                    <td>@Model.Falls</td>
+                </tr>
+                <tr>
+                    <td>Offsites</td>
+                    <td>@Model.OffSites</td>
+                </tr>
+            </table>
 
         </div>
+
     </div>
+</div>
 
 </div>
-<div>
-    <a asp-area="" asp-controller="Teams" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
-</div>
+@if (User.IsAdmin())
+{
+    <div>
+        <a asp-area="" asp-controller="Teams" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
+    </div>
+}
 <br>

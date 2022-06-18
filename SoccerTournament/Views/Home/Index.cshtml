@@ -1,8 +1,63 @@
-﻿@{
+﻿@using SoccerTournament.Data.Models
+@model SoccerTournament.Models.DTO.GameDto
+
+@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row">
+    <div class="col-lg-6">
+        <h2>Games Statistics</h2>
+        <table class="table-bordered table-striped table table-warning">
+            <tr>
+                <th>Game with most goals</th>
+                <td>@Model.Goals.Name</td>
+                <td>@Model.Goals.HomeTeamGoals : @Model.Goals.AwayTeamGoals</td>
+            </tr>
+            <tr>
+                <th>Game with most red cards</th>
+                <td>@Model.RedCarts.Name</td>
+                <td>@Model.RedCarts.RedCards</td>
+            </tr>
+            <tr>
+                <th>Game with most offsites</th>
+                <td>@Model.OffSites.Name</td>
+                <td>@Model.OffSites.OffSites</td>
+            </tr>
+            <tr>
+                <th>Game with most corners</th>
+                <td>@Model.Corners.Name</td>
+                <td>@Model.Corners.Corners</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <h2>Players Statistics</h2>
+        <table class="table-bordered table-striped table table-warning">
+             <tr>
+                <th>Player with most goals</th>
+                <td>@Model.PlayerGoals.FirstName @Model.PlayerGoals.FamilyName</td>
+                <td>@Model.PlayerGoals.Goals</td>
+            </tr>
+             <tr>
+                <th>Player with most red cards</th>
+                <td>@Model.PlayerRedCard.FirstName @Model.PlayerRedCard.FamilyName</td>
+                <td>@Model.PlayerRedCard.RedCards</td>
+            </tr>
+             <tr>
+                <th>Player with most yellow cards</th>
+                <td>@Model.PlayerYellowCard.FirstName @Model.PlayerYellowCard.FamilyName</td>
+                <td>@Model.PlayerYellowCard.YellowCards</td>
+            </tr>
+             <tr>
+                <th>Player with most assisstances</th>
+                <td>@Model.PlayerAssisstances.FirstName @Model.PlayerAssisstances.FamilyName</td>
+                <td>@Model.PlayerAssisstances.Assistances</td>
+            </tr>
+             <tr>
+                <th>Player with biggest rating</th>
+                <td>@Model.PlayerRating.FirstName @Model.PlayerRating.FamilyName</td>
+                <td>@Model.PlayerRating.AverageRating.</td>
+            </tr>
+        </table>
+    </div>
 </div>

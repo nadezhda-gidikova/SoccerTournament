@@ -23,18 +23,21 @@
             <h6 class="card-title">Country: @Model.CountryName</h6>
             <div class="row">
                 <h6 class="card-title">Players:</h6>
-            @foreach (var player in @Model.TeamPlayers)
-            {               
+                @foreach (var player in @Model.TeamPlayers)
+                {
                     <div class="col-lg-3">
-                          <h6 class="card-title">@player.FirstName @player.FamilyName"</h6>
-                        <img class="rounded-circle" src="@player.PictureUrl" style="width:200px;height:100px"  alt="@player.FirstName @player.FamilyName">
+                        <h6 class="card-title">@player.FirstName @player.FamilyName"</h6>
+                        <img class="rounded-circle" src="@player.PictureUrl" style="width:200px;height:100px" alt="@player.FirstName @player.FamilyName">
                     </div>
-            }
-             </div>           
+                }
+            </div>
         </div>
     </div>
 </div>
-<div>
-    <a asp-area="" asp-controller="Teams" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
-</div>
+@if (User.IsAdmin())
+{
+    <div>
+        <a asp-area="" asp-controller="Teams" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
+    </div>
+}
 <br>

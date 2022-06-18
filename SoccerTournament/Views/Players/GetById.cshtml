@@ -11,7 +11,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="@Model.PictureUrl" class="d-block w-400" style="height:200px" alt="@Model.FirstName @Model.FamilyName>
-                   
+
                 </div>
             </div>
         </div>
@@ -31,10 +31,12 @@
             <a asp-area="" asp-controller="Players" asp-action="GetAllByName">See all players</a>
         </div>
     </div>
-    
+
 </div>
-<div>
+            @if (User.IsAdmin())
+            {
+    <div>
         <a asp-area="" asp-controller="Players" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
     </div>
-    <br>
-    
+            }
+<br>

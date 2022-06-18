@@ -4,8 +4,8 @@
     ViewBag.Title = @Model.Name;
 }
 <div>
-    <div >
-        <div >
+    <div>
+        <div>
             <h1 class="align-content-center">@Model.Name</h1>
             <div class="row">
                 @foreach (var game in @Model.Games)
@@ -22,7 +22,10 @@
 
 </div>
 
-<div>
-    <a asp-area="" asp-controller="Competitions" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
-</div>
+@if (User.IsAdmin())
+{
+    <div>
+        <a asp-area="" asp-controller="Competitions" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger float-lg-end">Delete</a>
+    </div>
+}
 <br>
